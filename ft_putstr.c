@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:54:38 by apolleux          #+#    #+#             */
-/*   Updated: 2025/10/31 13:45:03 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/03 18:58:43 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
+#include <stddef.h>
+#include <unistd.h>
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr(char *s)
 {
-	if (s && fd > 0)
-		write(fd, s, ft_strlen(s));
+	if (s)
+	{
+		write(1, s, ft_strlen(s));
+	}
+	// else
+	// {
+	// 	write(1, "(null)", 6);
+	// 	len+= 6;
+	// }
 }

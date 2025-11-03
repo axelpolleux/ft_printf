@@ -6,38 +6,46 @@
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:27:46 by apolleux          #+#    #+#             */
-/*   Updated: 2025/11/03 09:03:27 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/03 19:09:03 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void decode_format(int c, int *len)
+static void	decode_format(int c, va_list args)
 {
 	if (c == 'c')
+		ft_putchar(va_arg(args, int));
 	else if (c == 's')
-	else if (c == 'p')
-	else if (c == 'd')
-	else if (c == 'i')
+		ft_putstr(va_arg(args, char *));
+	else if (c == 'd' || c == 'i')
+		ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
-	else if (c == 'x')
-	else if (c == 'X')
-	else if (c == '%')
-
+		ft_putnbr_u(va_arg(args, int));
+	else
+		ft_putchar('%');
 }
 
 int	ft_printf(const char *format, ...)
 {
 	char	*res;
-
 	va_list	arguments;
+
 	va_start(arguments, format);
 	res = (char *)format;
 	while (*res)
 	{
-		decode_format(&len,)
-
+		if (*res == '%')
+		{
+			res++;
+			decode_format(*res, arguments);
+		}
+		else
+		{
+			ft_putchar(*res);
+		}
 		res++;
 	}
+	va_end(arguments);
 	return (0);
 }
