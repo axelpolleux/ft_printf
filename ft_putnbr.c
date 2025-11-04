@@ -6,7 +6,7 @@
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:54:53 by apolleux          #+#    #+#             */
-/*   Updated: 2025/11/03 19:00:27 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:01:12 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putnbr(int n)
 	len = 0;
 	if (n < 0)
 	{
-		ft_putchar('-');
+		ft_putchar('-', 1);
 		len++;
 		if (n == -2147483648)
 		{
@@ -32,7 +32,7 @@ void	ft_putnbr(int n)
 		ft_putnbr((n / 10));
 		len++;
 	}
-	ft_putchar((n % 10 + '0'));
+	ft_putchar((n % 10 + '0'), 1);
 }
 
 void	ft_putnbr_u(int nbr)
@@ -46,5 +46,10 @@ void	ft_putnbr_u(int nbr)
 		ft_putnbr((n / 10));
 		len++;
 	}
-	ft_putchar((n % 10 + '0'));
+	ft_putchar((n % 10 + '0'), 1);
+}
+
+void	putbase(int n)
+{
+	while ()
 }

@@ -6,46 +6,47 @@
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:27:46 by apolleux          #+#    #+#             */
-/*   Updated: 2025/11/03 19:09:03 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:00:54 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	decode_format(int c, va_list args)
+static void	decode_format(int c, va_list args, int *len)
 {
 	if (c == 'c')
-		ft_putchar(va_arg(args, int));
+		ft_putchar(va_arg(args, int), *len);
 	else if (c == 's')
 		ft_putstr(va_arg(args, char *));
 	else if (c == 'd' || c == 'i')
 		ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
 		ft_putnbr_u(va_arg(args, int));
+	else if (c == '%')
+		ft_putchar('%', *len);
 	else
-		ft_putchar('%');
+			ft_putchar(c, *len);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	char	*res;
 	va_list	arguments;
+	int		len;
 
+	len = 0;
 	va_start(arguments, format);
 	res = (char *)format;
 	while (*res)
 	{
 		if (*res == '%')
-		{
-			res++;
-			decode_format(*res, arguments);
-		}
+			decode_format(*++res, arguments, &len);
 		else
 		{
-			ft_putchar(*res);
+			ft_putchar(*res, len);
 		}
 		res++;
 	}
 	va_end(arguments);
-	return (0);
+	return (len);
 }

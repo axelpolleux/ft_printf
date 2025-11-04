@@ -6,13 +6,14 @@
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:54:31 by apolleux          #+#    #+#             */
-/*   Updated: 2025/11/03 19:00:48 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/04 10:05:25 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, int len)
 {
 	write(1, &c, 1);
+	len++;
 }
