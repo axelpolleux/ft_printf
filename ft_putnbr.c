@@ -6,50 +6,37 @@
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:54:53 by apolleux          #+#    #+#             */
-/*   Updated: 2025/11/04 15:01:12 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/04 18:45:11 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int n)
+void	ft_putnbr(int nbr, char *base, int *len)
 {
-	int	len;
+	int		len_base;
+	long	n;
 
-	len = 0;
+	len_base = ft_strlen(base);
+	n = (long)nbr;
 	if (n < 0)
 	{
-		ft_putchar('-', 1);
-		len++;
-		if (n == -2147483648)
-		{
-			write(1, "2147483648", 10);
-		}
+		ft_putchar('-', len);
 		n = -n;
 	}
-	if (n >= 10)
-	{
-		ft_putnbr((n / 10));
-		len++;
-	}
-	ft_putchar((n % 10 + '0'), 1);
+	if (n >= len_base)
+		ft_putnbr((n / len_base), base, len);
+	ft_putchar((base [n % len_base]), len);
 }
 
-void	ft_putnbr_u(int nbr)
+void	ft_putnbr_u(int nbr, char *base, int *len)
 {
-	int				len;
-	unsigned int	n = (unsigned int)nbr;
+	unsigned int	len_base;
+	unsigned long	n;
 
-	len = 0;
-	if (n >= 10)
-	{
-		ft_putnbr((n / 10));
-		len++;
-	}
-	ft_putchar((n % 10 + '0'), 1);
-}
-
-void	putbase(int n)
-{
-	while ()
+	n = (unsigned int)nbr;
+	len_base = ft_strlen(base);
+	if (n >= len_base)
+		ft_putnbr((n / len_base), base, len);
+	ft_putchar((base [n % len_base]), len);
 }

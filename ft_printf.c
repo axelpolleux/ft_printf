@@ -6,7 +6,7 @@
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:27:46 by apolleux          #+#    #+#             */
-/*   Updated: 2025/11/04 15:00:54 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/04 18:12:13 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,21 @@
 static void	decode_format(int c, va_list args, int *len)
 {
 	if (c == 'c')
-		ft_putchar(va_arg(args, int), *len);
+		ft_putchar(va_arg(args, int), len);
 	else if (c == 's')
-		ft_putstr(va_arg(args, char *));
+		ft_putstr(va_arg(args, char *), len);
 	else if (c == 'd' || c == 'i')
-		ft_putnbr(va_arg(args, int));
+		ft_putnbr(va_arg(args, int), "0123456789", len);
+	else if (c == 'x')
+		ft_putnbr_u(va_arg(args, int), "0123456789abcdef", len);
+	else if (c == 'X')
+		ft_putnbr_u(va_arg(args, int), "0123456789ABCDEF", len);
 	else if (c == 'u')
-		ft_putnbr_u(va_arg(args, int));
+		ft_putnbr_u(va_arg(args, int), "0123456789", len);
 	else if (c == '%')
-		ft_putchar('%', *len);
+		ft_putchar('%', len);
 	else
-			ft_putchar(c, *len);
+		ft_putchar(c, len);
 }
 
 int	ft_printf(const char *format, ...)
@@ -43,7 +47,7 @@ int	ft_printf(const char *format, ...)
 			decode_format(*++res, arguments, &len);
 		else
 		{
-			ft_putchar(*res, len);
+			ft_putchar(*res, &len);
 		}
 		res++;
 	}
