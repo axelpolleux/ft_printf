@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_numb_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:54:53 by apolleux          #+#    #+#             */
-/*   Updated: 2025/11/05 17:19:11 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/05 19:07:05 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_putnbr(int nbr, char *base, int *len)
 	}
 	if (n >= len_base)
 		ft_putnbr((n / len_base), base, len);
-	ft_putchar((base [n % len_base]), len);
+	ft_putchar((base[n % len_base]), len);
 }
 
 void	ft_putnbr_u(int nbr, char *base, int *len)

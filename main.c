@@ -6,7 +6,7 @@
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 09:43:03 by apolleux          #+#    #+#             */
-/*   Updated: 2025/11/05 17:19:00 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/05 19:12:57 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 // int	main(void)
 // {
-// 	const char *base = "Test of printf %p %p\n";
+// 	const char *format = NULL;
 // 	int len1, len2;
 
 // 	int	test = -2147483648;
-// 	len1 = printf(base, LONG_MIN, LONG_MAX);
-// 	len2 = ft_printf(base, LONG_MIN, LONG_MAX);
+// 	len1 = printf("%s", format);
+// 	len2 = ft_printf("%s", format);
 
-// 	printf("Real : %d || Mine : %d\n", len1, len2);
-}
+// printf("Real : %d || Mine : %d\n", len1, len2);
+// }

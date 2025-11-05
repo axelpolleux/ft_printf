@@ -6,7 +6,7 @@
 #    By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/03 09:42:52 by apolleux          #+#    #+#              #
-#    Updated: 2025/11/03 14:47:22 by apolleux         ###   ########.fr        #
+#    Updated: 2025/11/05 18:43:38 by apolleux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FILES = ft_printf.c \
 		ft_putchar.c \
 		ft_putstr.c \
 		ft_strlen.c \
-		ft_putnbr.c
+		ft_numb_utils.c
 
 # BONUSES =
 
