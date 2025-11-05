@@ -6,7 +6,7 @@
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:27:46 by apolleux          #+#    #+#             */
-/*   Updated: 2025/11/04 18:12:13 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/05 15:05:53 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static void	decode_format(int c, va_list args, int *len)
 		ft_putnbr_u(va_arg(args, int), "0123456789ABCDEF", len);
 	else if (c == 'u')
 		ft_putnbr_u(va_arg(args, int), "0123456789", len);
+	else if (c == 'p')
+		ft_putptr((size_t)va_arg(args, void *), len);
 	else if (c == '%')
 		ft_putchar('%', len);
 	else
@@ -39,6 +41,8 @@ int	ft_printf(const char *format, ...)
 	int		len;
 
 	len = 0;
+	if (!format)
+		return (-1);
 	va_start(arguments, format);
 	res = (char *)format;
 	while (*res)
@@ -46,9 +50,7 @@ int	ft_printf(const char *format, ...)
 		if (*res == '%')
 			decode_format(*++res, arguments, &len);
 		else
-		{
 			ft_putchar(*res, &len);
-		}
 		res++;
 	}
 	va_end(arguments);
