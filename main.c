@@ -6,22 +6,22 @@
 /*   By: apolleux <apolleux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 09:43:03 by apolleux          #+#    #+#             */
-/*   Updated: 2025/11/05 19:12:57 by apolleux         ###   ########.fr       */
+/*   Updated: 2025/11/06 09:22:49 by apolleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// #include "ft_printf.h"
 // #include <limits.h>
 // #include <stdio.h>
-// #include "ft_printf.h"
 
 // int	main(void)
 // {
-// 	const char *format = NULL;
+// 	const char *format = "%i\n";
 // 	int len1, len2;
 
-// 	int	test = -2147483648;
-// 	len1 = printf("%s", format);
-// 	len2 = ft_printf("%s", format);
+// 	void	*test = ;
+// 	len1 = printf(format, test);
+// 	len2 = ft_printf(format, test);
 
 // printf("Real : %d || Mine : %d\n", len1, len2);
 // }
